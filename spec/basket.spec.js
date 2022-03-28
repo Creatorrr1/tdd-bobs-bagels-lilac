@@ -6,10 +6,9 @@ describe("Basket", () => {
   beforeEach(() => {
     basket = new Basket();
   });
-
   it("create and add a item to the basket", () => {
     const expected = [{
-      sku: "BGLO",
+      item: "BGLO",
       price: 0.49,
       name: "Bagel",
       variant: "Onion"
@@ -22,13 +21,13 @@ describe("Basket", () => {
   it("a user can add more than one item to the basket", () => {
     const expected = [
       {
-        sku: "BGLO",
+        item: "BGLO",
         price: 0.49,
         name: "Bagel",
         variant: "Onion"
       },
       {
-        sku: "BGLP",
+        item: "BGLP",
         price: 0.39,
         name: "Bagel",
         variant: "Plain"
@@ -43,7 +42,7 @@ describe("Basket", () => {
   it("a user can remove one item from the basket", () => {
     const expected = [
       {
-        sku: "BGLP",
+        item: "BGLP",
         price: 0.39,
         name: "Bagel",
         variant: "Plain"
@@ -59,13 +58,13 @@ describe("Basket", () => {
   it("a user can remove more than one item from the basket", () => {
     const expected = [
       {
-        sku: "BGLP",
+        item: "BGLP",
         price: 0.39,
         name: "Bagel",
         variant: "Plain"
       },
       {
-        sku: "BGLE",
+        item: "BGLE",
         price: 0.49,
         name: "Bagel",
         variant: "Everything"
@@ -95,31 +94,31 @@ describe("Basket", () => {
   it("if the user tries to add more than 5 items, the basket will be full, the overfill will be discarded and an error message will be displayed", () => {
     const expected = [
       {
-        sku: "BGLO",
+        item: "BGLO",
         price: 0.49,
         name: "Bagel",
         variant: "Onion"
       },
       {
-        sku: "BGLP",
+        item: "BGLP",
         price: 0.39,
         name: "Bagel",
         variant: "Plain"
       },
       {
-        sku: "BGLE",
+        item: "BGLE",
         price: 0.49,
         name: "Bagel",
         variant: "Everything"
       },
       {
-        sku: "BGLS",
+        item: "BGLS",
         price: 0.49,
         name: "Bagel",
         variant: "Sesame"
       },
       {
-        sku: "BGSE",
+        item: "BGSE",
         price: 2.99,
         name: "Bagel Sandwich",
         variant: "Everything",
@@ -147,43 +146,43 @@ describe("Basket", () => {
   it("Bob's bagel manager can create baskets with larger capacity", () => {
     const expected = [
       {
-        sku: "BGLO",
+        item: "BGLO",
         price: 0.49,
         name: "Bagel",
         variant: "Onion"
       },
       {
-        sku: "BGLP",
+        item: "BGLP",
         price: 0.39,
         name: "Bagel",
         variant: "Plain"
       },
       {
-        sku: "BGLE",
+        item: "BGLE",
         price: 0.49,
         name: "Bagel",
         variant: "Everything"
       },
       {
-        sku: "BGLS",
+        item: "BGLS",
         price: 0.49,
         name: "Bagel",
         variant: "Sesame"
       },
       {
-        sku: "BGSE",
+        item: "BGSE",
         price: 2.99,
         name: "Bagel Sandwich",
         variant: "Everything",
       },
       {
-        sku: "BGSS",
+        item: "BGSS",
         price: 4.99,
         name: "Bagel Sandwich",
         variant: "Sesame",
       },
       {
-        sku: "BGSN",
+        item: "BGSN",
         price: 2.99,
         name: "Bagel Sandwich",
         variant: "Nutella",
@@ -215,4 +214,55 @@ describe("Basket", () => {
     const result = basket.getBasketTotal()
     expect(result).toEqual(expected);
   });
-});
+  
+  it("creates larger basket", () => {
+    basket.createBasket(10)
+    // const expected = [
+    // {
+    //     item: "BGLO",
+    //     price: 0.49,
+    //     name: "Bagel",
+    //     variant: "Onion"
+    // },
+    // {
+    //     item: "BGLP",
+    //     price: 0.39,
+    //     name: "Bagel",
+    //     variant: "Plain"
+    // },
+    // {
+    //     item: "BGLE",
+    //     price: 0.49,
+    //     name: "Bagel",
+    //     variant: "Everything"
+    // },
+    // {
+    //     item: "BGLS",
+    //     price: 0.49,
+    //     name: "Bagel",
+    //     variant: "Sesame"
+    // },
+    // {
+    //   item: "BGSS",
+    //   price: 4.99,
+    //   name: "Bagel Sandwich",
+    //   variant: "Sesame",
+    // },
+    // {
+    //   item: "BGSN",
+    //   price: 2.99,
+    //   name: "Bagel Sandwich",
+    //   variant: "Nutella",
+    // }
+    // ]
+    // const newBasket = basket.addItemToBasket('BGLO')
+    // basket.addItemToBasket('BGLP')
+    // basket.addItemToBasket('BGLE')
+    // basket.addItemToBasket('BGLS')
+    // basket.addItemToBasket('BGSS')
+    // basket.addItemToBasket('BGSN')
+
+    // expect(newBasket).toEqual(expected);
+    // expect(result).toEqual()
+  });
+})

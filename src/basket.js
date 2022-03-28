@@ -4,19 +4,27 @@ class Basket {
         this.basket = [];
         this.basketSize = 5;
     };
-    
-    addItemToBasket(sku) {
+    // change sku to item
+    // create test
+    // create a variable that holds the text and return the variable
+    // this makes the text reusable and creates clean code
+    addItemToBasket(item) {
         for (let i = 0; i < inventory.length; i++) {
-            if (inventory[i].sku === sku && this.basket.length < this.basketSize) {
+            if (inventory[i].item === item && this.basket.length < this.basketSize) {
                 this.basket.push(inventory[i]);
-            }
+                return "item in the basket"
+            } 
         }
+        // if (this.basket.length > this.basketSize) {
+        // return this.createBasket()
+        // }
+
         return 'You cannot add more than 5 items to your basket!'
     };
 
-    removeItemFromBasket(sku) {
+    removeItemFromBasket(item) {
         for (let i = 0; i < this.basket.length; i++) {
-            if (this.basket[i].sku === sku) {
+            if (this.basket[i].item === item) {
                 this.basket.splice(i, 1)
             }
         }
@@ -25,7 +33,7 @@ class Basket {
 
     getItemPrice(product) {
         for (let i = 0; i < inventory.length; i++) {
-            if (inventory[i].sku === product) {
+            if (inventory[i].item === product) {
                 return `The price of the item is £${inventory[i].price}`
             }
         }
@@ -42,6 +50,11 @@ class Basket {
             totalPrice += this.basket[i].price
         }
         return `The total price of the items in your basket is £${Number(totalPrice.toFixed(2))}`
+    }
+
+    createBasket(sizeOfBasket) {
+        this.basketSize = sizeOfBasket
+        console.log(this.basketSize)
     }
 };
 
