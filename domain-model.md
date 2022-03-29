@@ -6,5 +6,5 @@ Pseudocode | Objects  | Methods |Messages / Properties | Output
 ||| removeItemFromBasket()|| filter.[Array]
 |||| @Conditional flow |Error@"String"
 | Basket size reassigned ||| createBasket() | @int/number
-|||| getItemPrice()| @"String"@int/number
-|||| getBasketTotal() |	@"String"@int/Number
+|Gets the price of a single item||| getItemPrice()| @"String"@int/number
+|Gets the total price of the basket and push it to a receipt||| getBasketTotal() |	@"String"@int/Number

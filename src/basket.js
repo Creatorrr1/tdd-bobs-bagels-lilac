@@ -3,6 +3,7 @@ class Basket {
     constructor() {
         this.basket = [];
         this.basketSize = 5;
+        this.receiptPrice = []
     };
     // change sku to item
     // create test
@@ -15,10 +16,6 @@ class Basket {
                 return "item in the basket"
             } 
         }
-        // if (this.basket.length > this.basketSize) {
-        // return this.createBasket()
-        // }
-
         return 'You cannot add more than 5 items to your basket!'
     };
 
@@ -48,6 +45,7 @@ class Basket {
         let totalPrice = 0;
         for (let i = 0; i < this.basket.length; i++) {
             totalPrice += this.basket[i].price
+            this.receiptPrice.push(this.basket[i].price)
         }
         return `The total price of the items in your basket is £${Number(totalPrice.toFixed(2))}`
     }
