@@ -45,8 +45,9 @@ class Basket {
         let totalPrice = 0;
         for (let i = 0; i < this.basket.length; i++) {
             totalPrice += this.basket[i].price
-            this.receiptPrice.push(this.basket[i].price)
         }
+        this.receiptPrice.push('here is the receipt',totalPrice)
+        console.log(this.receiptPrice)
         return `The total price of the items in your basket is £${Number(totalPrice.toFixed(2))}`
     }
 
