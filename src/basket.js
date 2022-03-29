@@ -1,9 +1,12 @@
 const inventory = require("./inventory.js");
+const Price = require("./price.js");
+// const Price = require("./price.js");
 class Basket {
     constructor() {
         this.basket = [];
         this.basketSize = 5;
         this.receiptPrice = []
+        this.price = new Price()
     };
     // change sku to item
     // create test
@@ -16,7 +19,7 @@ class Basket {
                 return "item in the basket"
             } 
         }
-        return 'You cannot add more than 5 items to your basket!'
+        return 'Your basket is full, you can not add anymore items!'
     };
 
     removeItemFromBasket(item) {
@@ -42,13 +45,11 @@ class Basket {
     }
 
     getBasketTotal() {
-        let totalPrice = 0;
-        for (let i = 0; i < this.basket.length; i++) {
-            totalPrice += this.basket[i].price
-        }
-        this.receiptPrice.push('here is the receipt',totalPrice)
-        console.log(this.receiptPrice)
-        return `The total price of the items in your basket is £${Number(totalPrice.toFixed(2))}`
+        return this.price.getBasketTotal(this.basket)
+    }
+
+    getReceipt() {
+
     }
 
     createBasket(sizeOfBasket) {

@@ -1,4 +1,6 @@
 const Basket = require("../src/basket.js");
+const Price = require("../src/price.js");
+
 
 describe("Basket", () => {
   let basket
@@ -54,7 +56,7 @@ describe("Basket", () => {
     const result = basket.showBasket()
     expect(result).toEqual(expected);
   });
-
+  /*--------   Price    ---------------------  */
   it("a user can remove more than one item from the basket", () => {
     const expected = [
       {
@@ -81,7 +83,7 @@ describe("Basket", () => {
   });
 
   it("a user cannot add more than 5 items to their basket", () => {
-    const expected = 'You cannot add more than 5 items to your basket!'
+    const expected = 'Your basket is full, you can not add anymore items!'
     basket.addItemToBasket('BGLO')
     basket.addItemToBasket('BGLP')
     basket.addItemToBasket('BGLE')
@@ -131,6 +133,7 @@ describe("Basket", () => {
     basket.addItemToBasket('BGSE')
     basket.addItemToBasket('BGLO')
     const result = basket.showBasket('BGSE')
+    // console.log(result)
     expect(result).toEqual(expected);
   });
 
@@ -226,12 +229,12 @@ describe("Basket", () => {
     basket.addItemToBasket('BGSS')
     basket.addItemToBasket('BGSN')
 
-    expect(basket.basket.length).toEqual(basket.basketSize)
+    // expect(basket.basket.length).toEqual(basket.basketSize)
     const result = basket.addItemToBasket('BGSN')
 
     console.log('basket',basket.basket.length)
     expect(basket.basket.length).toEqual(basket.basketSize)
-    expect(result).toEqual('You cannot add more than 5 items to your basket!')
+    expect(result).toEqual('Your basket is full, you can not add anymore items!')
     console.log(result)
   });
 })
