@@ -14,15 +14,48 @@ class Price {
         }
         return 'The product is not available'
     }
-
+    
     getBasketTotal(basket) {
         let totalPrice = 0;
         for (let i = 0; i < basket.length; i++) {
             totalPrice += basket[i].price
-        }
-        // this.receiptPrice.push('here is the receipt',totalPrice)
+        } 
+        return totalPrice
+    }
+
+    getBasketTotalMessage(basket) {
+        const totalPrice = this.getBasketTotal(basket)
+
+        // this.receiptPrice.push(totalPrice)
         // console.log(this.receiptPrice)
         return `The total price of the items in your basket is £${Number(totalPrice.toFixed(2))}`
+    } 
+
+    getReceipt(basket) {
+        const totalPrice = this.getBasketTotal(basket)
+        // today's date
+        // const receiptTitle = "~~~ Bob's Bagels ~~~"
+        let date = new Date()
+
+        // Start with an empty string
+        let receipt = ""
+
+
+        // Receipt heading
+        receipt += "===============\n"
+        //   Use date where needed
+        receipt += ` Date: ${date}\n`
+        receipt += basket.item, basket.price
+        // Receipt details
+        //   Use basket contents to create receipt for each type of bagel
+        // Receipt total
+        receipt += " totalPrice: ${totalPrice}\n"   
+        receipt += totalPrice
+        // Receipt footer
+        //   Use date where needed
+        console.log(receipt)
+        return receipt
+        // const totalPrice = this.receiptPrice
     }
 
 }

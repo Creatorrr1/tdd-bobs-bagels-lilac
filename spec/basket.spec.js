@@ -214,7 +214,7 @@ describe("Basket", () => {
     basket.addItemToBasket('BGLO')
     basket.addItemToBasket('BGLP')
     basket.addItemToBasket('BGLS')
-    const result = basket.getBasketTotal()
+    const result = basket.getBasketTotalMessage()
     expect(result).toEqual(expected);
   });
   

@@ -44,12 +44,12 @@ class Basket {
         return this.basket
     }
 
-    getBasketTotal() {
-        return this.price.getBasketTotal(this.basket)
+    getBasketTotalMessage() {
+        return this.price.getBasketTotalMessage(this.basket)
     }
 
     getReceipt() {
-
+        return this.price.getReceipt(this.basket)
     }
 
     createBasket(sizeOfBasket) {
